@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'calculator_model.dart';
 
@@ -11,6 +12,7 @@ class CalculatorButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return OutlinedButton(
       onPressed: () {
+        HapticFeedback.lightImpact();
         context.read<CalculatorModel>().setValue(value);
       },
       style: OutlinedButton.styleFrom(
@@ -50,7 +52,7 @@ class ButtonPanel extends StatelessWidget {
         CalculatorButton(value: '4'),
         CalculatorButton(value: '5'),
         CalculatorButton(value: '6'),
-        CalculatorButton(value: '−'),
+        CalculatorButton(value: '-'),
         CalculatorButton(value: '1'),
         CalculatorButton(value: '2'),
         CalculatorButton(value: '3'),
